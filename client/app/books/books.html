@@ -1,0 +1,48 @@
+<div class="container" >
+<div class="col-md-2">
+      <!--Sidebar content-->
+
+      Search: <input ng-model="query">
+      Sort by:
+      <select ng-model="orderProp">
+        <option value="name">Alphabetical</option>
+        <option value="age">Newest</option>
+      </select>
+    </div>
+        <span>
+            <a href="/newbook">New Book</a>
+        </span>
+   <div class="col-md-10">
+
+     <ul  class="books">
+        <li ng-repeat="book in books | filter:{name: query } | orderBy:orderProp" class="thumbnail">
+			
+           <img ng-src="{{book.imageUrl}}" class="book"></br></br></br>
+			<span class="glyphicon glyphicon-thumbs-up"
+                     ng-click="incrementUpvotes(book)">                
+                      </span>
+                     {{book.upvotes}}
+         <h1>{{book.name}}</h1>
+
+         <p>{{book.description}}</p>
+
+
+
+    	<p>	<span>Name:</span><a ng-show="book.link != null" href="{{book.link}}">
+            {{book.name}}
+          </a> </p>
+
+    	<p>	<span>Date:</span>{{book.date}} </p>
+
+    	<p>	<span>Writer:</span>{{book.writer}} </p>
+
+    	<p>	<span>Publisher:</span>{{book.publisher}} </p>
+
+        <span>
+            <a href="/books/{{book._id}}/comments">{{book.comments.count}} Comments</a>
+        </span>
+        <button ng-click="bookDelete(book._id)">Delete</button>
+        </li>
+      </ul>
+    </div>
+    </div>
