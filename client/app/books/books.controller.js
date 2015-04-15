@@ -8,9 +8,7 @@
                    $scope.books = books
                    })
 
-             $scope.setImage = function(img) {
-                  $scope.img = img
-               }
+
             $scope.incrementUpvotes = function(book) {
        Book.upvoteBook(book._id, book.upvotes + 1 )
           .success(function(updated_book) {
@@ -39,5 +37,28 @@
           })
           $location.path("/books");
     }
-    }])
+    }]);
 
+angular.module('tolkienlibApp')
+      .controller('BooksDetailCtrl', [
+      '$scope', 
+      'Book', 
+      '$routeParams',
+       function ($scope,Book ,$routeParams) {
+        Book.getBook($routeParams.book_id)
+        .success(function(book) {
+             $scope.book = book;
+        });
+        $scope.addComment = function(){
+            if($scope.comment.body === '') { return; }
+            var comment = {
+                body: $scope.comment.body,
+                author: $scope.comment.author
+            }
+            Book.addBookComment($scope.book._id, comment )
+                .success(function(added_comment) {
+                    $scope.book.comments.push(added_comment)
+                    $scope.comment = {} ;   
+                })
+    }
+}])

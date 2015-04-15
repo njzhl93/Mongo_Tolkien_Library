@@ -8,5 +8,5 @@ module.exports = {
     uri: 'mongodb://localhost/tolkienlib-dev'
   },
 
-  seedDB: false
+  seedDB: true
 };

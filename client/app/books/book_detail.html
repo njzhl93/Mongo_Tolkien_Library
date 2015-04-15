@@ -1,0 +1,70 @@
+<div >
+      <img ng-src="{{book.imageUrl}}" class="book">
+    </div>
+
+    <h1>{{book.name}}</h1>
+<div style="font-size:20px;">
+    <p>{{book.description}}</p>
+
+
+
+    	<p>	<span>Name: </span><a ng-show="book.link != null" href="{{book.link}}">
+            {{book.name}}
+          </a> </p>
+
+    	<p>	<span>Date: </span>{{book.date}} </p>
+
+    	<p>	<span>Writer: </span>{{book.writer}} </p>
+
+    	<p>	<span>Publisher: </span>{{book.publisher}} </p>
+        <span>
+            <a href="/books">Back</a>
+        </span>
+
+        </br></br></br></br>
+    </div>
+<div class="col-md-8 col-md-offset-1">
+  <h2>Comments</h2>
+      <div class="row">
+        
+
+
+  <div ng-repeat="comment in book.comments | orderBy:'-upvotes'">
+    <span class="glyphicon glyphicon-thumbs-up"
+      ng-click="incrementUpvotes(comment)" ></span>
+    {{comment.upvotes}}
+  <span style="font-size:20px; margin-left:10px; color:blue;">
+       {{comment.author}} 
+    </span>
+  said:</br>
+    <span style="font-size:20px; margin-left:50px;">
+        {{comment.body}}
+    </span>
+    </br></br>
+  </div>
+
+
+
+  <form ng-submit="addComment()"
+    style="margin-top:10px;">
+    <h3>Add a new comment</h3>
+
+    <div class="form-group">
+      <input type="text"
+      class="form-control"
+      placeholder="Comment"
+      ng-model="comment.body"></input>
+    </div>
+    <div class="form-group">
+      <input type="text"
+      class="form-control"
+      placeholder="Author"
+      ng-model="comment.author"></input>
+    </div>
+    <button type="submit" class="btn btn-primary">Post</button>
+  </form>
+     </div>
+     </div>
+     </div>
+</div>
+
