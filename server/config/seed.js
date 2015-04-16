@@ -35,25 +35,50 @@ Book.find({}).remove(function() {
   },
   {
   
-  "description": "Frodo and the Companions of the Ring have been beset by danger during their quest to prevent the Ruling Ring from falling into the hands of the Dark Lord by destroying it in the Cracks of Doom. They have lost the wizard, Gandalf, in the battle with an evil spirit in the Mines of Moria; and at the Falls of Rauros, Boromir, seduced by the power of the Ring, tried to seize it by force. While Frodo and Sam made their escape the rest of the company were attacked by Orcs."
+  description: "Frodo and the Companions of the Ring have been beset by danger during their quest to prevent the Ruling Ring from falling into the hands of the Dark Lord by destroying it in the Cracks of Doom. They have lost the wizard, Gandalf, in the battle with an evil spirit in the Mines of Moria; and at the Falls of Rauros, Boromir, seduced by the power of the Ring, tried to seize it by force. While Frodo and Sam made their escape the rest of the company were attacked by Orcs."
 ,
-  "name": "The Two Towers",
+  name: "The Two Towers",
   
-  "link": "http://www.amazon.co.uk/Two-Towers-Lord-Rings-Part/dp/0007488335/ref=sr_1_8?s=books&ie=UTF8&qid=1425243560&sr=1-8&keywords=lord+of+the+rings",
+  link: "http://www.amazon.co.uk/Two-Towers-Lord-Rings-Part/dp/0007488335/ref=sr_1_8?s=books&ie=UTF8&qid=1425243560&sr=1-8&keywords=lord+of+the+rings",
 
-  "date": "2012",
+  date: "2012",
 
-  "writer": "J. R. R Tolkien",
+  writer: "J. R. R Tolkien",
 
-  "publisher": "HarperCollins",
+  publisher: "HarperCollins",
     
-  "comments": [],
+  comments: [],
     
   
-  "imageUrl": "assets/images/books/The-Two-Towers.png",
+  imageUrl: "assets/images/books/The-Two-Towers.png",
   
-  "id": "The-Two-Towers",
   
   upvotes: 0
+});
+});
+
+var Film = require('../api/film/film.model');
+Book.find({}).remove(function() {
+  Book.create({
+  
+  description: "A meek hobbit of the Shire and eight companions set out on a journey to Mount Doom to destroy the One Ring and the dark lord Sauron."
+,
+  name: "The Fellowship of the Ring",
+  
+  link: "http://www.imdb.com/title/tt0120737/?ref_=fn_al_tt_4",
+
+  date: "2001",
+
+  director: "Peter Jackson",
+
+  actors: "Elijah Wood, Ian McKellen, Orlando Bloom",
+    
+  comments: [],
+    
+  
+  imageUrl: "assets/images/films/The-Fellowship-of-the-Ring.png",
+  
+  upvotes: 0
+  
 });
 });

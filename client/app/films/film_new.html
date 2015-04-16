@@ -1,0 +1,44 @@
+<form name="filmForm" novalidate ng-submit="addFilm()"
+        style="margin-top:30px;">
+        <h4>Add a new film</h4>
+
+        <div class="form-group">
+          <input type="text" name="name" 
+            class="form-control" placeholder="Name" 
+            ng-model="newFilm.name"></input>
+        </div>
+        <div class="form-group">
+          <input type="url" class="form-control" placeholder="Link"
+            ng-model="newFilm.link"></input>
+        </div>
+        <div class="form-group">
+          <input type="text" name="description"
+          class="form-control" placeholder="Description"
+          ng-model="newFilm.description" ng-required> </input>
+        </div>
+        <div class="form-group">
+          <input type="text" name="writer"
+          class="form-control" placeholder="Writer"
+          ng-model="newFilm.writer" ng-required> </input>
+        </div>
+        <div class="form-group">
+          <input type="text" name="publisher"
+          class="form-control" placeholder="Publisher"
+          ng-model="newFilm.publisher" ng-required> </input>  
+        </div>
+        <div class="form-group">
+          <input type="text" name="date"
+          class="form-control" placeholder="Date"
+          ng-model="newFilm.date" ng-required> </input>  
+        </div>
+        <div class="form-group">
+          <input type="url" class="form-control" placeholder="Imagelink"
+            ng-model="newFilm.imageUrl"></input>
+        </div>
+        <button type="submit" class="btn btn-primary"
+            ng-disabled="filmForm.$pristine || (filmForm.$dirty && filmForm.$invalid) ">
+        Post</button>
+          <span>
+            <a href="/films">Back</a>
+        </span>
+      </form>

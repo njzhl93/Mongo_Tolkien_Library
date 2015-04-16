@@ -61,4 +61,11 @@ angular.module('tolkienlibApp')
                     $scope.comment = {} ;   
                 })
     }
+    $scope.incrementUpvotes = function(comment) {
+       Book.upvoteBookComment($scope.book._id, comment._id , 
+                comment.upvotes + 1 )
+          .success(function(updated_comment) {
+              comment.upvotes = updated_comment.upvotes
+          })
+    }
 }])
